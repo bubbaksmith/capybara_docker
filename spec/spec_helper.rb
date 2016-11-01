@@ -13,7 +13,16 @@ Bundler.require(:default)
 
 url = 'http://localhost:4444//wd/hub'
 
-Capybara.default_driver = :selenium
-Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+capabilities = Selenium::WebDriver::Remote::Capabilities.chrome
+
+Capybara.register_driver :remote_browser do |app|
+  Capybara::Selenium::Driver.new(
+      app,
+      :browser => :remote,
+      url: url,
+      desired_capabilities: capabilities
+  )
 end
+
+Capybara.default_driver = :remote_browser
+Capybara.javascript_driver = :remote_browser
