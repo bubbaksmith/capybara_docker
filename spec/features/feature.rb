@@ -7,7 +7,11 @@ feature 'I just need some tests' do
   end
 
   scenario 'Then I should be done' do
-    puts "     All done!".cyan
+    # puts "     All done!".cyan
+  end
+
+  scenario 'Then I fail!' do
+    raise "Way to fail!"
   end
 
 end

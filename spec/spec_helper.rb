@@ -11,6 +11,8 @@ require 'bundler'
 Bundler.require(:default)
 # require_all 'spec/lib'
 
+url = 'http://localhost:4444//wd/hub'
+
 Capybara.default_driver = :selenium
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, :browser => :chrome)

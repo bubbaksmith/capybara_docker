@@ -1,0 +1,1 @@
+Install dinghy https://github.com/codekitchen/dinghy#install

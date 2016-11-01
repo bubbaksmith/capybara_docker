@@ -1,0 +1,21 @@
+#hub:
+#  image: selenium/hub:latest
+#  environment:
+#    VIRTUAL_HOST: selenium.hub.docker
+#  ports:
+#    - 4444:4444
+#
+#chrome:
+#  image: selenium/node-chrome-debug
+#  environment:
+#    VIRTUAL_HOST: chrome.docker
+#  ports:
+#    - 5900:5900
+#  links:
+#    - hub
+
+capybara:
+    build: .
+    dockerfile: Dockerfile
+    links:
+      - hub
