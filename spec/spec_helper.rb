@@ -11,9 +11,12 @@ require 'bundler'
 Bundler.require(:default)
 # require_all 'spec/lib'
 
-url = 'http://localhost:4444//wd/hub'
-
+# url = 'http://localhost:4444/wd/hub'
+# url = 'http://selenium.hub.docker/wd/hub'
+url = 'http://172.17.0.2:4444/wd/hub'
 capabilities = Selenium::WebDriver::Remote::Capabilities.chrome
+# Capybara.app_host = "http://#{ENV['APP_HOST']}"
+Capybara.run_server = false
 
 Capybara.register_driver :remote_browser do |app|
   Capybara::Selenium::Driver.new(
